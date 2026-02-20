@@ -1,0 +1,803 @@
+/* ========================================
+   VARIABLES CSS Y RESET
+   ======================================== */
+
+:root {
+    /* Paleta de colores */
+    --color-primary: #FF8C00; /* Naranja */
+    --color-secondary: #DAA520; /* Mostaza */
+    --color-dark: #1a1a1a; /* Negro */
+    --color-gray: #666666; /* Gris */
+    --color-light-gray: #f5f5f5; /* Gris claro */
+    --color-white: #ffffff; /* Blanco */
+    
+    /* Tipografía */
+    --font-primary: 'Roboto', Arial, sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+    
+    /* Espaciado */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+    --shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: var(--line-height-base);
+    color: var(--color-dark);
+    background-color: var(--color-white);
+    overflow-x: hidden;
+}
+
+/* Mejora de accesibilidad para focus */
+*:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* ========================================
+   ENCABEZADO SUPERIOR (LOGO Y NOMBRE)
+   ======================================== */
+
+.top-header {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    background-color: var(--color-white);
+    line-height: 0; 
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    line-height: normal;
+}
+
+.top-header .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.logo {
+    max-height: 200px;
+    width: auto;
+    display: block; 
+    transition: transform var(--transition-normal);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.company-name {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+}
+
+/* ========================================
+   BARRA DE NAVEGACIÓN
+   ======================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--color-white); 
+    box-shadow: 0 2px 10px rgba(250, 249, 249, 0.15);
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+/* Efecto hover en menú */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-primary);
+    transition: all var(--transition-normal);
+    transform: translateX(-50%);
+}
+
+.nav-menu a:hover,
+.nav-menu a[aria-current="page"] {
+    color: var(--color-primary);
+}
+
+.nav-menu a:hover::after,
+.nav-menu a[aria-current="page"]::after {
+    width: 80%;
+}
+
+/* Botón hamburguesa para móviles */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--spacing-xs);
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-dark);
+    margin: 3px 0;
+    transition: all var(--transition-fast);
+}
+
+/* Animación del botón hamburguesa cuando está activo */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* ========================================
+   SECCIÓN HERO (CARRUSEL Y ESLOGAN)
+   ======================================== */
+
+.hero-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+/* Carrusel de imágenes */
+.carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    transition: transform var(--transition-normal);
+}
+
+.carousel:hover {
+    transform: scale(1.02);
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Controles del carrusel */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 140, 0, 0.8);
+    color: var(--color-white);
+    border: none;
+    padding: var(--spacing-sm);
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: background-color var(--transition-fast);
+    z-index: 10;
+    border-radius: 5px;
+}
+
+.carousel-control:hover {
+    background-color: var(--color-primary);
+}
+
+.carousel-control.prev {
+    left: 10px;
+}
+
+.carousel-control.next {
+    right: 10px;
+}
+
+/* Indicadores del carrusel */
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.indicator.active,
+.indicator:hover {
+    background-color: var(--color-white);
+}
+
+/* Eslogan */
+.slogan {
+    text-align: center;
+}
+
+.slogan h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.slogan p {
+    font-size: 1.2rem;
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ========================================
+   SECCIÓN DE VIDEO
+   ======================================== */
+
+.video-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-primary);
+}
+
+.video-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ========================================
+   SECCIÓN DE CLIENTES
+   ======================================== */
+
+.clients-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+    overflow: hidden;
+}
+
+.clients-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.clients-slider {
+    overflow: hidden;
+    padding: var(--spacing-md) 0;
+    width: 100%;
+}
+
+.clients-track {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.clients-track img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    transition: transform var(--transition-normal);
+    margin: 0 40px;
+}
+
+.clients-track img:hover {
+    transform: scale(1.1);
+}
+
+/* Pausar animación al hacer hover */
+.clients-slider:hover .clients-track {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ========================================
+   PIE DE PÁGINA
+   ======================================== */
+
+.footer {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+    padding: var(--spacing-xl) 0 0; 
+    margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-column h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.footer-column p,
+.footer-column li {
+    color: #cccccc;
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-column a:hover {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: var(--spacing-sm) 0;
+    margin-top: var(--spacing-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    grid-column: 1 / -1;
+}
+
+.footer-bottom p {
+    color: #999999;
+    line-height: 1;
+}
+
+/* ========================================
+   BOTÓN FLOTANTE DE WHATSAPP
+   ======================================== */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: var(--color-white);
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: var(--shadow-lg);
+    transition: all var(--transition-normal);
+    z-index: 999;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-float svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--color-white);
+}
+
+.whatsapp-text {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* ========================================
+   MEDIA QUERIES - DISEÑO RESPONSIVE
+   ======================================== */
+
+/* Tablets y pantallas medianas (768px - 1024px) */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .company-name {
+        font-size: 1.5rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Móviles y pantallas pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--color-white);
+        width: 100%;
+        text-align: center;
+        transition: left var(--transition-normal);
+        box-shadow: var(--shadow-md);
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu a {
+        padding: var(--spacing-md);
+        border-bottom: 1px solid var(--color-light-gray);
+    }
+    
+    .nav-menu a::after {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .company-name {
+        font-size: 1.2rem;
+    }
+    
+    .logo {
+        max-height: 50px;
+    }
+    
+    .slogan h2 {
+        font-size: 1.8rem;
+    }
+    
+    .slogan p {
+        font-size: 1rem;
+    }
+    
+    .carousel-inner {
+        height: 300px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .whatsapp-text {
+        display: none;
+    }
+    
+    .whatsapp-float {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        justify-content: center;
+        padding: 15px;
+    }
+}
+
+/* Pantallas muy pequeñas (hasta 480px) */
+@media (max-width: 480px) {
+    :root {
+        --font-size-base: 14px;
+    }
+    
+    .container {
+        padding: 0 var(--spacing-xs);
+    }
+    
+    .company-name {
+        font-size: 1rem;
+    }
+    
+    .carousel-inner {
+        height: 200px;
+    }
+    
+    .slogan h2 {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-control {
+        padding: 8px;
+        font-size: 1.2rem;
+    }
+}
+
+/* ========================================
+   ESTILOS PARA IMPRESIÓN
+   ======================================== */
+
+@media print {
+    .navbar,
+    .whatsapp-float,
+    .carousel-control,
+    .carousel-indicators,
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    body {
+        color: #000;
+        background: #fff;
+    }
+    
+    .top-header {
+        box-shadow: none;
+        border-bottom: 2px solid #000;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+}
+
+/* ========================================
+   UTILIDADES Y CLASES DE AYUDA
+   ======================================== */
+
+/* Clase para lectores de pantalla solamente */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Utilidades de texto */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Utilidades de margen superior */
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+
+/* Utilidades de margen inferior */
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+
+/* Utilidades de padding */
+.p-1 { padding: var(--spacing-sm); }
+.p-2 { padding: var(--spacing-md); }
+.p-3 { padding: var(--spacing-lg); }
+
+/* Clases de visibilidad */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block !important;
+}
+
+/* ========================================
+   ANIMACIONES ADICIONALES
+   ======================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.slide-in-up {
+    animation: slideInUp 0.6s ease-out;
+}
+
+/* ========================================
+   ESTADOS DE CARGA
+   ======================================== */
+
+.loading {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 3px solid var(--color-primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

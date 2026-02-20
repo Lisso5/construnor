@@ -1,0 +1,360 @@
+/* ========================================
+   ESTILOS PÁGINA PROYECTOS
+   ======================================== */
+
+/* Banner superior */
+.page-header {
+    position: relative;
+    height: 250px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.header-overlay h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-overlay p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    max-width: 600px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Introducción */
+.projects-intro {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--color-white);
+}
+
+.projects-intro p {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-gray);
+}
+
+/* Galería de proyectos */
+.projects-gallery {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* Tarjeta de proyecto */
+.project-card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3; 
+    height: auto; 
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: transform var(--transition-slow);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+/* Overlay con título y botón */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: var(--spacing-md);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-overlay h3 {
+    color: var(--color-white);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+    font-weight: 600;
+}
+
+.btn-view {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-view:hover {
+    background-color: var(--color-secondary);
+    transform: scale(1.05);
+}
+
+/* Llamado a la acción */
+.projects-cta {
+    padding: var(--spacing-xl);
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+}
+
+.projects-cta h2 {
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.projects-cta p {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-lg);
+    opacity: 0.95;
+}
+
+.projects-cta .btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    padding: var(--spacing-sm) var(--spacing-xl);
+}
+
+.projects-cta .btn-primary:hover {
+    background-color: var(--color-light-gray);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   ESTILOS PÁGINA DETALLE DE PROYECTO
+   ======================================== */
+
+.project-detail {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-white);
+}
+
+.project-detail-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.project-detail-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-detail-image {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.project-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-lg);
+}
+
+.project-description {
+    background-color: var(--color-light-gray);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+}
+
+.project-description h2 {
+    color: var(--color-dark);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.project-description p {
+    color: var(--color-gray);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.project-specs {
+    background-color: var(--color-light-gray);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+}
+
+.project-specs h2 {
+    color: var(--color-dark);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.spec-item {
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid #ddd;
+}
+
+.spec-item:last-child {
+    border-bottom: none;
+}
+
+.spec-label {
+    font-weight: 600;
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.spec-value {
+    color: var(--color-gray);
+}
+
+/* Botón volver */
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: var(--spacing-md);
+    padding: 10px 20px;
+    background-color: var(--color-gray);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all var(--transition-fast);
+}
+
+.btn-back:hover {
+    background-color: var(--color-dark);
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .project-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+   ======================================== */
+
+@media (max-width: 768px) {
+    .page-header {
+        height: 300px;
+    }
+    
+    .header-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .header-overlay p {
+        font-size: 1rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .project-image {
+        height: 250px;
+    }
+    
+    .projects-cta h2 {
+        font-size: 1.8rem;
+    }
+    
+    .project-detail-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+   ======================================== */
+
+@media (max-width: 480px) {
+    .page-header {
+        height: 250px;
+    }
+    
+    .header-overlay h1 {
+        font-size: 1.5rem;
+    }
+    
+    .project-image {
+        height: 200px;
+    }
+    
+    .project-overlay h3 {
+        font-size: 1.2rem;
+    }
+}

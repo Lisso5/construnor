@@ -1,0 +1,234 @@
+/* ========================================
+   ESTILOS ESPECÍFICOS PARA PÁGINA DE SERVICIOS
+   ======================================== */
+
+/* Banner superior con imagen de fondo */
+.page-header {
+    position: relative;
+    height: 250px;
+    background: linear-gradient(135deg, #6b4f2a, #a87d4b);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Overlay oscuro sobre la imagen */
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(246, 159, 45, 0.6); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.header-overlay h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-overlay p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    max-width: 600px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Sección de servicios */
+.services-section {
+    padding: var(--spacing-xl) 0;
+}
+
+.services-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-xl);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-gray);
+}
+
+/* Grid de tarjetas de servicios */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Tarjeta individual de servicio */
+.service-card {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: var(--spacing-lg);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    transition: all var(--transition-normal);
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+}
+
+/* Ícono del servicio (imagen circular) */
+.service-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal);
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Título del servicio */
+.service-card h3 {
+    font-size: 1.3rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+}
+
+/* Descripción del servicio */
+.service-card p {
+    color: var(--color-gray);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* Llamado a la acción */
+.services-cta {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 15px;
+    color: var(--color-white);
+    box-shadow: var(--shadow-lg);
+}
+
+.services-cta h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.services-cta p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+    opacity: 0.95;
+}
+
+.services-cta .btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    padding: var(--spacing-sm) var(--spacing-xl);
+}
+
+.services-cta .btn-primary:hover {
+    background-color: var(--color-light-gray);
+    transform: scale(1.05);
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .header-overlay h1 {
+        font-size: 2.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-md);
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+   ======================================== */
+
+@media (max-width: 768px) {
+    .page-header {
+        height: 300px;
+    }
+    
+    .header-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .header-overlay p {
+        font-size: 1rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .service-card {
+        padding: var(--spacing-md);
+    }
+    
+    .service-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .services-cta h2 {
+        font-size: 1.5rem;
+    }
+    
+    .services-cta p {
+        font-size: 1rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+   ======================================== */
+
+@media (max-width: 480px) {
+    .page-header {
+        height: 250px;
+    }
+    
+    .header-overlay h1 {
+        font-size: 1.5rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+    
+    .services-intro {
+        font-size: 1rem;
+    }
+}

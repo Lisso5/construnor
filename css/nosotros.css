@@ -1,0 +1,367 @@
+/* ========================================
+   ESTILOS PÁGINA NOSOTROS
+   ======================================== */
+
+/* Banner superior */
+.page-header {
+    position: relative;
+    height: 250px;
+    background: linear-gradient(135deg, #7a6030, #b89450);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(161, 93, 5, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.header-overlay h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.header-overlay p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    max-width: 600px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Sección Historia */
+.history-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-white);
+}
+
+.history-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.history-text h2 {
+    font-size: 2.2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.history-text p {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-gray);
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.history-image {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.history-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform var(--transition-slow);
+}
+
+.history-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Sección Misión, Visión, Valores */
+.values-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+}
+
+.values-grid-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.values-grid-bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.values-grid-bottom .value-card {
+    max-width: 600px;
+    width: 100%;
+}
+
+.value-card p strong {
+    color: var(--color-primary);
+    display: inline; 
+    margin-top: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .values-grid-top {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sección Brochure */
+.brochure-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-white);
+}
+
+.brochure-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+}
+
+.brochure-text h2 {
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+}
+
+.brochure-text p {
+    color: var(--color-gray);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
+}
+
+.brochure-text ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: var(--spacing-lg);
+}
+
+.brochure-text ul li {
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-gray);
+}
+
+.brochure-text ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.brochure-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all var(--transition-normal);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary,
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brochure-preview {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.brochure-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.brochure-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-md);
+}
+
+/* Sección Estadísticas */
+.stats-section {
+    padding: var(--spacing-xl) 0;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+}
+
+.stats-section h2 {
+    color: var(--color-white);
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-xl);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.stat-item {
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    font-weight: 300;
+    opacity: 0.95;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .history-content,
+    .brochure-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .history-image {
+        order: -1;
+    }
+    
+    .header-overlay h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+   ======================================== */
+
+@media (max-width: 768px) {
+    .page-header {
+        height: 300px;
+    }
+    
+    .header-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .header-overlay p {
+        font-size: 1rem;
+    }
+    
+    .history-text h2,
+    .brochure-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .value-card {
+        padding: var(--spacing-md);
+    }
+    
+    .brochure-buttons {
+        flex-direction: column;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+   ======================================== */
+
+@media (max-width: 480px) {
+    .page-header {
+        height: 250px;
+    }
+    
+    .header-overlay h1 {
+        font-size: 1.5rem;
+    }
+    
+    .history-text p {
+        text-align: left;
+    }
+    
+    .value-card p {
+        text-align: left;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}

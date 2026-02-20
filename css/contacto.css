@@ -1,0 +1,429 @@
+/* ========================================
+   ESTILOS PÁGINA CONTACTO
+   ======================================== */
+
+/* Banner superior */
+.page-header {
+    position: relative;
+    height: 250px;
+    background: linear-gradient(135deg, #6b4f2a, #a87d4b);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(246, 159, 45, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.header-overlay h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-overlay p {
+    font-size: 1.3rem;
+    font-weight: 300;
+    max-width: 600px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Sección de contacto */
+.contact-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+/* Formulario de contacto */
+.contact-form-container h2,
+.contact-info-container h2 {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-weight: 700;
+}
+
+.form-description,
+.info-description {
+    color: var(--color-gray);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.7;
+}
+
+.contact-form {
+    background-color: var(--color-light-gray);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    box-shadow: var(--shadow-sm);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-dark);
+    font-weight: 500;
+}
+
+.required {
+    color: var(--color-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+    background-color: var(--color-white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+}
+
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: #dc3545;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    margin-top: 4px;
+    cursor: pointer;
+}
+
+.checkbox-label span {
+    flex: 1;
+}
+
+.checkbox-label a {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-white);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.form-message {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* Información de contacto */
+.contact-info-container {
+    background-color: var(--color-light-gray);
+    padding: var(--spacing-lg);
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.contact-info-list {
+    margin-bottom: var(--spacing-lg);
+}
+
+.info-item {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid #ddd;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.info-icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+}
+
+.info-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.info-content h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.info-content p {
+    color: var(--color-gray);
+    line-height: 1.6;
+    margin-bottom: 5px;
+}
+
+.info-content a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.info-content a:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+/* Redes sociales */
+.social-links {
+    margin-top: var(--spacing-lg);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid #ddd;
+}
+
+.social-links h3 {
+    font-size: 1.1rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.social-icons {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.social-icons a {
+    width: 45px;
+    height: 45px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    transition: all var(--transition-fast);
+}
+
+.social-icons a:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-3px);
+}
+
+.social-icons svg {
+    width: 22px;
+    height: 22px;
+}
+
+/* Sección del mapa */
+.map-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-light-gray);
+}
+
+.map-section h2 {
+    font-size: 2rem;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-lg);
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.map-container iframe {
+    width: 100%;
+    display: block;
+}
+
+/* ========================================
+   RESPONSIVE - TABLETS
+   ======================================== */
+
+@media (max-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+    
+    .contact-info-container {
+        order: -1;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES
+   ======================================== */
+
+@media (max-width: 768px) {
+    .page-header {
+        height: 300px;
+    }
+    
+    .header-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .header-overlay p {
+        font-size: 1rem;
+    }
+    
+    .contact-form-container h2,
+    .contact-info-container h2 {
+        font-size: 1.6rem;
+    }
+    
+    .contact-form,
+    .contact-info-container {
+        padding: var(--spacing-md);
+    }
+    
+    .info-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - MÓVILES PEQUEÑOS
+   ======================================== */
+
+@media (max-width: 480px) {
+    .page-header {
+        height: 250px;
+    }
+    
+    .header-overlay h1 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-form-container h2,
+    .contact-info-container h2 {
+        font-size: 1.4rem;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 0.95rem;
+    }
+    
+    .btn-submit {
+        font-size: 1rem;
+    }
+}
